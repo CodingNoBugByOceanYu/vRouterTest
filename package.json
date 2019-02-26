@@ -2,10 +2,50 @@
   "name": "vueroutertest",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "dependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/helper-plugin-utils": "^7.0.0",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "autoprefixer": "^9.3.1",
+    "babel-core": "^6.26.3",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "babel-preset-env": "^1.7.0",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "iview": "^3.2.2",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^0.23.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "url-loader": "^1.1.2",
+    "vue": "^2.5.17",
+    "vue-loader": "^15.4.2",
+    "vue-router": "^3.0.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js --mode production",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js --mode development"
   },
   "author": "hugh",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "babel-preset-react": "^6.24.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodingNoBugByOceanYu/vRouterTest.git"
+  }
 }
