@@ -51,6 +51,11 @@ const config = {
             }
         ]
     },
+    resolve: {
+        alias: {
+            'vue': 'vue/dist/vue.min.js'
+        }
+    },
     plugins: [
         //能够在js代码中引用到，并且vue也能够根据此进行分类打包
         new webpack.DefinePlugin({
