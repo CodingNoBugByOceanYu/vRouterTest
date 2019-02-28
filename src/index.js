@@ -7,19 +7,54 @@ const root = document.createElement('div')
 document.body.appendChild(root)
 
 
-const User = {
-    template: '<div>User  {{ $route.params.username }} {{ $route.params.post_id }}</div>',
-    watch: {
-        '$route'(to, from) {
-            console.log(to, from)
+const UserProfile = { 
+    template: `<div>
+        <input type="text" v-model='test1' />
+    </div>`,
+    data() {
+        return {
+            test1: 111
+        }
+    }
+}
+const UserPosts = {
+    template: `<div>
+        <input type="text" v-model='test2' />
+    </div>`,
+    data() {
+        return {
+            test2: 1222
         }
     }
 }
 
+
+const User = {
+    template: `<div>
+        <h2>User {{ $route.params.id }}</h2>
+        <keep-alive>
+        <router-view></router-view>
+        </keep-alive>
+    </div>`
+}
+
 const router = new VueRouter({
     routes: [
-        // 动态路径参数 以冒号开头
-        { path: '/user/:username/post/:post_id', component: User }
+        { 
+            path: '/user/:id', 
+            component: User,
+            children: [
+                {
+                    path: 'profile',
+                    component: UserProfile
+                },
+                {
+                    path: 'posts',
+                    component: UserPosts
+                }
+            ]
+
+        }
     ]
 })
 

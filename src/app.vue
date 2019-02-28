@@ -1,15 +1,8 @@
 <template>
     <div id="app">
-        <p>
-            <router-link to="/user/foo/post/1111">Go to Foo</router-link>
-            <router-link to="/user/bar/post/2222">Go to Bar </router-link>
-        </p>
-        <router-view></router-view>
-
-        <div> {{username}} </div>
-        <div> {{postId}} </div>
-
-        <button @click="goBack"> back </button>
+        <router-view />
+        <button @click="goBack"> 后退 </button>
+        <button @click="goForword"> 前进 </button>
     </div>
 </template>
 
@@ -28,10 +21,17 @@ export default {
         goBack () {
             window.history.length > 1
                 ? this.$router.go(-1)
-                : this.$router.push('/')
-            }
+                : this.$router.push('/user/hugh')
+            },
+        goForword () {
+            window.history.length > 1
+                ? this.$router.go(1)
+                : this.$router.push('/user/hugh')
+            },
+        
     }
 }
+
 </script>
 <style lang="stylus" scoped>
 #app {
